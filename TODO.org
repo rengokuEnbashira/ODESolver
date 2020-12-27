@@ -1,0 +1,11 @@
+* Things to do [0%]
+- [ ] Recognize numbers and symbols within an image [0%]
+  - [ ] Recognize Numbers
+  - [ ] Recognize variables (y,t)
+  - [ ] Recognize signs (+,-,x,/,=,(,))
+  - [ ] Recognize functions (sin, cos, etc)
+  - [ ] Recognize derivatives 
+- [ ] From the position of the numbers and symbols convert it into a string-format equation
+- [ ] Get numerical solution from string-format equation
+- [ ] Make a API (using Flask)
+- [ ] Make a UI (using JavaScript)
