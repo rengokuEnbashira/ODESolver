@@ -32,7 +32,8 @@ def newton_method(fun_f,fun_df,x0,maxIt=_maxIt,prec=_prec):
     return x
 
 """
-y' + y'' + t*y = sin(t)
+Example of syntax for the ODE:
+y'' + 5*y' - 4*y = sin(10*t)
 """
 
 class MyEquation:
@@ -68,28 +69,30 @@ class MyEquation:
     def solve(self,alpha,t=_t):
         return rungeKutta(self.fun_f,alpha,t=t)
 
-"""
-f = lambda x : x**2 - 5
-df = lambda x : 2*x
 
-print(newton_method(f,df,0.1),5**0.5)
-"""
+if __name__ == "__main__":
+    """
+    f = lambda x : x**2 - 5
+    df = lambda x : 2*x
+    
+    print(newton_method(f,df,0.1),5**0.5)
+    """
 
-"""
-f = lambda y,t : np.array([y[1],-y[0]])
-alpha = np.array([0,1])
-t = np.linspace(0,20,100)
-y = rungeKutta(f,alpha,t=t)
-plt.plot(y[:,0])
-plt.show()
-print(y)
-"""
-eq = MyEquation("y''' + y + t*y'= t*sin(2*t)")
+    """
+    f = lambda y,t : np.array([y[1],-y[0]])
+    alpha = np.array([0,1])
+    t = np.linspace(0,20,100)
+    y = rungeKutta(f,alpha,t=t)
+    plt.plot(y[:,0])
+    plt.show()
+    print(y)
+    """
+    eq = MyEquation("y'' + 5*y' - 4*y = sin(10*t)")
+    
+    alpha = np.array([0,0])
+    t = np.linspace(0,3,100)
 
-alpha = np.array([0,0,1])
-t = np.linspace(0,10,100)
-
-y = eq.solve(alpha,t=t)
-plt.plot(y[:,0])
-plt.show()
-print(y)
+    y = eq.solve(alpha,t=t)
+    plt.plot(t,y[:,0])
+    plt.show()
+    print(y)
