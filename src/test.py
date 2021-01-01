@@ -15,7 +15,7 @@ elif sys.argv[1] == "CNN":
     model = CNN()
     model.load_state_dict(torch.load(model_name))
 
-img = cv.imread("../data/test2.jpg",0)
+img = cv.imread("../test/test_12.jpg",0)
 ret, thresh = cv.threshold(img,127,255,0)
 contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE,cv.CHAIN_APPROX_SIMPLE)
 cnt = [cv.boundingRect(e) for e in contours[1:]]
